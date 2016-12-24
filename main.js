@@ -1,38 +1,35 @@
-var quotes = '["У меня очень широкий круг общения. У меня 212 друзей на MySpace. ","О! В мире не хватит ромашкового чая, чтобы успокоить ярость в моей груди!","Этот разум не способен забывать! Я не забыл ничего с того дня, как мать перестала кормить меня грудью... Это был ненастный вторник...","С сантехникой мы на «ты». Не хочу хвастать, но почти весь пятый класс я провел головой в унитазе.","Ах ты, гравитация, бессердечная ты сука!","Это не квартира, это дикая воронка энтропии!","Эх, Марио, если б я только мог управлять людьми, как я управляю тобой…","Я не сумасшедший. Моя мамуля меня проверяла.","Спокойной ночи, жалкий человечишка!","Небольшое недопонимание? Это у Галилео и папы римского было небольшое недопонимание!","Ножницы режут бумагу, бумага заворачивает камень, камень давит ящерицу, ящерица травит Спока, Спок ломает ножницы, ножницы отрезают голову ящерице, ящерица ест бумагу, бумага подставляет Спока, Спок испаряет камень, и, как обычно, камень разбивает ножницы.","О да! Среди смайликов я был бы двоеточием с большой буквой D.","Провалы в памяти — бесплатный приз на дне каждой бутылки водки.","(Смотрит на надпись на стене «Увидимся в аду Шелдон».) Самое страшное в этой надписи — пропущенная запятая.","Ничто не гробит отношения так, как близкое знакомство с чужими гигиеническими привычками.","Прошу прощения, я бы вернулся раньше, но автобус сделал остановку, чтобы впустить людей.","Чувства? Я что, по-вашему, хиппи какой-то немытый?","(На свадьбе Говарда и Бернадетт.) Я никогда не понимал эту необходимость делить свою жизнь с кем-то еще. Возможно, потому что я сам по себе совершенен. Я хочу пожелать вам, чтобы вы находили столько же счастья друг в друге, сколько я нахожу в самом себе.","Зимой это место достаточно близко к обогревателю, но не настолько близко, чтобы заставить потеть; летом же оно как раз на пути воздушных потоков из открытых окон, вон там и вон там; оно под таким углом от телевизора, что и не прямо, поэтому звук хорош, но и не так далеко, чтобы создать искажение картинки… Я могу продолжать, но суть ясна.","Бугагашенька!"]';
-quotes = JSON.parse(quotes);
+(function() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", 'data.json', true);
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4) {
+         if(xhr.status == 200) {
+            quotes = JSON.parse(xhr.responseText);  // глобальная переменная с преобразованным data.json
+             } else {
+           alert('npm install node-static -> 127.0.0.1:8080'); // вызвать обработчик ошибки с текстом ответа
+             }
+      }
+    };
+  xhr.send(null);
+})();
 
-var text = document.getElementById('text');
-var button = document.getElementById('button');
+var colors = ['#16a085', '#27ae60', '#2c3e50', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+var result = document.getElementById('result');
+var next = document.getElementById('next');
 
-text.innerHTML = "<p>" + quotes[0] + "</p>"; // default
-
-button.onclick = function foo() {
-		var random = parseInt(Math.random()*quotes.length)
-		var quote = quotes[random];
-		if(text.innerHTML == quote) {
+next.onclick = function foo() {
+		var randomQuote = parseInt(Math.random()*quotes.length);
+		var quote = quotes[randomQuote];
+		if(result.innerHTML == quote) {
 			return foo();
 		} 
-		text.innerHTML = "<p>" + quote + "</p>";
+		result.innerHTML = quote;
+		var randomColor = parseInt(Math.random()*colors.length);
+		document.body.style.backgroundColor = colors[randomColor];
+		document.body.children[2].style.backgroundColor = colors[randomColor];
+		var twit = "https://twitter.com/intent/tweet?text=" + quote;
+		var expression = /(<b>|<\/b>|<br>)/g;
+		var twit = twit.replace(expression, '');
+		document.body.children[1].href = twit;
 } 
 
-// var first = document.getElementById('first');
-// var firstStyle = first.style.background.value;
-
-// var second = document.getElementById('second');
-
-// var color = ['khaki', 'lightblue', 'pink', 'orange'];
-
-// first.onclick = function() {
-// 	var random = parseInt(Math.random()*color.length)
-// 	first.style.background = color[random];
-// } 
-// second.onclick = function() {
-// 	second.className = 'click';
-// } 
-
-
-		
-
-// var user = '{ "name": "Вася", "age": 35, "isAdmin": false, "friends": [0,1,2,3] }';
-
-// alert( user[2] ); 
