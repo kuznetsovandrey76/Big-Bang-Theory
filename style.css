@@ -8,6 +8,7 @@ body {
 }
 body, button {
 	background: khaki;
+	transition: background .5s;
 }
 table {
 	margin: 7em auto;

@@ -13,25 +13,32 @@
   xhr.send(null);
 })();
 
-var colors = ['#16a085', '#27ae60', '#2c3e50', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+// var colors = ['#16a085', '#27ae60', '#2c3e50', '#e74c3c', '#9b59b6', '#FB6964', '#342224', "#472E32", "#BDBB99", "#77B1A9", "#73A857"];
+var colors = ['orange', 'lightblue', 'tomato', 'khaki', 'darksalmon', 'lightpink', 'lightgreen', 'thistle'];
+
 var result = document.getElementById('result');
 var next = document.getElementById('next');
 
-next.onclick = function foo() {
-		var randomQuote = parseInt(Math.random()*quotes.length);
-		var quote = quotes[randomQuote];
-		if(result.innerHTML == quote) {
-			return foo();
-		} 
-		result.innerHTML = quote;
-		var randomColor = parseInt(Math.random()*colors.length);
-		document.body.style.backgroundColor = colors[randomColor];
-		document.body.children[2].style.backgroundColor = colors[randomColor];
-		var twit = "https://twitter.com/intent/tweet?text=" + quote;
-		var expression = /(<b>|<\/b>|<br>)/g;
-		var twit = twit.replace(expression, '');
-		document.body.children[1].href = twit;
+function foo() {
+		setTimeout(function() {
+			var randomQuote = parseInt(Math.random()*quotes.length);
+			var quote = quotes[randomQuote];
+			var randomColor = parseInt(Math.random()*colors.length);
+			var color = colors[randomColor];
+				if(result.innerHTML == quote || document.body.style.backgroundColor == color) {
+				return foo();
+			} 
+			document.body.style.backgroundColor = color;
+			document.body.children[2].style.backgroundColor = color;
+			result.innerHTML = quote;
+			var twit = "https://twitter.com/intent/tweet?text=" + quote;
+			var expression = /(<b>|<\/b>|<br>)/g;
+			var twit = twit.replace(expression, '');
+			document.body.children[1].href = twit;
+		}, 500);
+		
 } 
+next.addEventListener('click', foo);
 
 // Raphael js
                     // x, y, width, height (x, y - крайний левый угол)
@@ -44,8 +51,8 @@ c.transform("r30");
 var c = paper.ellipse(100, 100, 98, 25).attr('stroke-width', 2);
 c.transform("r150");
 
-var d = paper.circle(50, 50, 5).attr('fill', '000');
-var d = paper.circle(170, 80, 5).attr( { fill: '000', stroke: 'blue', 'stroke-width': 2} );
-var d = paper.circle(83, 170, 5).attr('fill', '000').animate(
+var d = paper.circle(50, 50, 5).attr('fill', 'white'); // left
+var d = paper.circle(170, 80, 5).attr( { fill: 'white', stroke: 'black', 'stroke-width': 1} ); // right
+var d = paper.circle(83, 170, 5).attr('fill', 'black').animate(
       Raphael.animation( { transform: 's2' }, 4000, '<'+'>' ).repeat(Infinity)
    );
