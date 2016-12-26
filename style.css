@@ -3,24 +3,15 @@
 	padding: 0;
 	text-align: center;
 }
+body {
+	min-width: 300px;
+}
+body, button {
+	background: khaki;
+}
 table {
 	margin: 7em auto;
-	
 }
-#result {
-	        border-radius: 10px;
-	-webkit-border-radius: 10px;
-	background: #FFF;
-	font-family: 'Marmelad', sans-serif;
-	font-size: 2em;
-	height: 400px;
-	padding: 1em 1em 2em;
-	position: relative;
-	vertical-align:middle;
-	width: 600px;
-	z-index: 2;
-}
-
 button {
 	        border-radius: 10px;
 	-webkit-border-radius: 10px;
@@ -37,12 +28,9 @@ button {
 }
 svg {
 	left: 0px;
-	position: relative;
-	top: -785px;
+	position: relative !important;
+	top: -785px !important;
 	z-index: 3;
-}
-body, button {
-	background: khaki;
 }
 a {
 	background: url('twitter.png') no-repeat;
@@ -56,4 +44,44 @@ a {
 	vertical-align: middle;
 	width: 61px;
 	z-index: 2;
+}
+#result {
+	        border-radius: 10px;
+	-webkit-border-radius: 10px;
+	background: #FFF;
+	font-family: 'Marmelad', sans-serif;
+	font-size: 2em;
+	height: 400px;
+	padding: 1em 1em 2em;
+	position: relative;
+	vertical-align:middle;
+	width: 600px;
+	z-index: 2;
+}
+
+@media only screen and (max-width: 700px) {
+
+	button {
+		font-size: 2em;
+		height: 60px;
+		margin: 10px;
+		top: -200px;
+		width: 150px;
+	}
+	svg {
+		left: 0px;
+		top: -650px !important;
+	}
+	a {
+		height: 60px;
+		left: 0px;
+		top: -206px;
+		width: 61px;
+	}
+    #result {
+		font-size: 1em;
+		height: 300px;
+		width: 450px;
+	}
+
 }

@@ -33,3 +33,19 @@ next.onclick = function foo() {
 		document.body.children[1].href = twit;
 } 
 
+// Raphael js
+                    // x, y, width, height (x, y - крайний левый угол)
+var paper = Raphael(0, 0, 200, 200);
+                    // x, y, width, height (x, y - середина фигуры; width, height - радиус)
+var c = paper.ellipse(100, 100, 98, 25).attr( {stroke: 'black', 'stroke-width': 2});
+c.transform("r90");
+var c = paper.ellipse(100, 100, 98, 25).attr('stroke-width', 2);
+c.transform("r30");
+var c = paper.ellipse(100, 100, 98, 25).attr('stroke-width', 2);
+c.transform("r150");
+
+var d = paper.circle(50, 50, 5).attr('fill', '000');
+var d = paper.circle(170, 80, 5).attr( { fill: '000', stroke: 'blue', 'stroke-width': 2} );
+var d = paper.circle(83, 170, 5).attr('fill', '000').animate(
+      Raphael.animation( { transform: 's2' }, 4000, '<'+'>' ).repeat(Infinity)
+   );
