@@ -29,12 +29,12 @@ function foo() {
 				return foo();
 			} 
 			document.body.style.backgroundColor = color;
-			document.body.children[2].style.backgroundColor = color;
+			document.body.children[3].style.backgroundColor = color;
 			result.innerHTML = quote;
 			var twit = "https://twitter.com/intent/tweet?text=" + quote;
 			var expression = /(<b>|<\/b>|<br>)/g;
 			var twit = twit.replace(expression, '');
-			document.body.children[1].href = twit;
+			document.body.children[2].href = twit;
 		}, 500);
 		
 } 
