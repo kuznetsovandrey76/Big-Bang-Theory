@@ -8,14 +8,50 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<?xml version="1.0"?>
+	<svg width="200" height="200" viewBox="0 0 200 200"
+	    xmlns="http://www.w3.org/2000/svg" version="1.1"
+	    xmlns:xlink="http://www.w3.org/1999/xlink">
+	  
+	  <path d="M100,2a25,98 0 1,1 0,196a25,98 0 1,1 0,-196"
+	      stroke="black" stroke-width="2" 
+	      fill="none" id="theMotionPath" />   
+	 <path d="M20,50 C45,25 205,125 180,150 C155,175 -5,75 20,50"
+	      stroke="black" stroke-width="2" 
+	      fill="none" id="theMotionPath3" />
+	  <path d="M20,150 C-5,125 155,25 180,50 C205,75 45,175 20,150"
+	      stroke="black" stroke-width="2" 
+	      fill="none" id="theMotionPath2" />   
+	  
+	  <circle cx="" cy="" r="5" fill="white" stroke="black" stroke-width="2"> 
+	     <animateMotion dur="2s" repeatCount="indefinite">
+	      <mpath xlink:href="#theMotionPath"/>
+	     </animateMotion>
+	   </circle>
+	   <circle cx="" cy="" r="5" fill="white" stroke="black" stroke-width="2"> 
+	     <animateMotion dur="2s" repeatCount="indefinite">
+	       <mpath xlink:href="#theMotionPath2"/>
+	     </animateMotion>
+	  </circle>
+	  </circle>
+	  <circle cx="" cy="" r="5" fill="white" stroke="black" stroke-width="2"> 
+	   <animateMotion dur="2s" repeatCount="indefinite">
+	     <mpath xlink:href="#theMotionPath3"/>
+	   </animateMotion>
+	 </circle>
+	</svg>
+
 	<table>
 	  <tr>
  			<td id="result">Welcome to Sheldon</td>
 	 	</tr>
 	</table>
-	<a class="twitter-share-button" href="https://twitter.com/intent/tweet" target='_blank'></a>
+	<a id="twitter" href="https://twitter.com/intent/tweet" target='_blank'></a>
 	<button id='next'>Bazinga</button><br>
-	<script src="raphael.min.js"></script>
+	<footer>
+		from <a href="https://github.com/kuznetsovandrey76">kuznetsovandrey76</a> with &hearts;
+	</footer>
+	<!-- <script src="raphael.min.js"></script> -->
 	<script src="main.js"></script>
 </body>
 </html>

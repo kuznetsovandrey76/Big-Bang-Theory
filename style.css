@@ -5,6 +5,7 @@
 }
 body {
 	min-width: 300px;
+	margin-top: -200px;
 }
 body, button {
 	background: khaki;
@@ -30,10 +31,16 @@ button {
 svg {
 	left: 0px;
 	position: relative !important;
-	top: -785px !important;
+	top: 225px;
 	z-index: 3;
 }
 a {
+	text-decoration: none;	
+}
+footer {
+	margin-top: -185px;
+}
+#twitter {
 	background: url('twitter.png') no-repeat;
 	background-size: cover;
 	display: inline-block;
@@ -55,7 +62,7 @@ a {
 	height: 400px;
 	padding: 1em 1em 2em;
 	position: relative;
-	vertical-align:middle;
+	/*vertical-align:middle;*/
 	width: 600px;
 	z-index: 2;
 }
@@ -71,7 +78,6 @@ a {
 	}
 	svg {
 		left: 0px;
-		top: -650px !important;
 	}
 	a {
 		height: 60px;

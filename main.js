@@ -40,7 +40,7 @@ function foo() {
 } 
 next.addEventListener('click', foo);
 
-// Raphael js
+/* // Raphael js
                     // x, y, width, height (x, y - крайний левый угол)
 var paper = Raphael(0, 0, 200, 200);
                     // x, y, width, height (x, y - середина фигуры; width, height - радиус)
@@ -53,6 +53,5 @@ c.transform("r150");
 
 var d = paper.circle(50, 50, 5).attr('fill', 'white'); // left
 var d = paper.circle(170, 80, 5).attr( { fill: 'white', stroke: 'black', 'stroke-width': 1} ); // right
-var d = paper.circle(83, 170, 5).attr('fill', 'black').animate(
-      Raphael.animation( { transform: 's2' }, 4000, '<'+'>' ).repeat(Infinity)
-   );
+var d = paper.circle(83, 170, 5).attr('fill', 'white');
+*/
